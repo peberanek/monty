@@ -5,10 +5,18 @@ A simple command-line motivator :-)
 """
 
 
+import random
+
+
 def main():
     """Main entry point"""
+    hints = [
+        "I know you can manage it :-)",
+        "What about to take 5 minute break?",
+        "What about to grab a mug of good coffee or tea?",
+    ]
     input("Hi <user>. What's your problem?:\n")
-    print("It's just another challenge. I know you can manage it :-)")
+    print(f"It's just another challenge. {random.choice(hints)}")
 
 
 if __name__ == "__main__":
