@@ -4,8 +4,8 @@
 A simple command-line motivator :-)
 """
 
-
 import random
+from pathlib import Path
 
 
 def main():
@@ -14,8 +14,20 @@ def main():
         "I know you can manage it :-)",
         "What about to take 5 minute break?",
         "What about to grab a mug of good coffee or tea?",
+        "What about of doing 2 push-ups?",
     ]
-    input("Hi <user>. What's your problem?:\n")
+    name_file = Path("name")
+
+    if not name_file.exists():
+        print("Hi, I'm Monty, your command-line motivator.")
+        name = input("What's your name?:\n")
+        name_file.write_text(name, encoding="utf-8")
+        print(f"Nice to meet you {name}.", end="")
+    else:
+        name = name_file.read_text(encoding="utf-8")
+        print(f"Hi {name}.", end="")
+
+    input(" What's your problem?:\n")
     print(f"It's just another challenge. {random.choice(hints)}")
 
 
