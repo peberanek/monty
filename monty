@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+"""Monty the Motivator
+
+A simple command-line motivator :-)
+"""
+
+
+def main():
+    """Main entry point"""
+    input("Hi <user>. What's your problem?:\n")
+    print("It's just another challenge. I know you can manage it :-)")
+
+
+if __name__ == "__main__":
+    main()
