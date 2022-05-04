@@ -17,6 +17,7 @@ def main():
         "What about of doing 2 push-ups?",
     ]
     name_file = Path("name")
+    history_file = Path("history")
 
     if not name_file.exists():
         print("Hi, I'm Monty, your command-line motivator.")
@@ -27,8 +28,13 @@ def main():
         name = name_file.read_text(encoding="utf-8")
         print(f"Hi {name}.", end="")
 
-    input(" What's your problem?:\n")
-    print(f"It's just another challenge. {random.choice(hints)}")
+    # TODO: improve the style by changing 'your' to 'the', also remove ':'
+    problem = input(" What's your problem?:\n")
+    answer = f"It's just another challenge. {random.choice(hints)}"
+    print(answer)
+    with history_file.open("a", encoding="utf-8") as histf:
+        # Separate entries by additional newline (hence \n*2)
+        histf.write(problem + "\n" + answer + "\n"*2)
 
 
 if __name__ == "__main__":
